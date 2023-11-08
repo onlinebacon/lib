@@ -1,11 +1,14 @@
-import { sAngle, uAngle, DEG, Deg } from './trig.js';
+import { sAngle, uAngle } from './trig.js';
 import { Vec3 } from './vec3.js';
-const { asin, acos, sin, cos } = Math;
+
+const { sqrt, asin, sin, cos } = Math;
 
 export const haversine = ([ lat1, lon1 ], [ lat2, lon2 ]) => {
-	return acos(
-		sin(lat1)*sin(lat2) +
-		cos(lat1)*cos(lat2)*cos(lon1 - lon2)
+	return 2*asin(
+		sqrt(
+			sin((lat2 - lat1)/2)**2
+			+ cos(lat1)*cos(lat2)*sin((lon2 - lon1)/2)**2
+		)
 	);
 };
 

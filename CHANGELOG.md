@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0] - 2023-11-08
+### Added
+- file `icosahedron-coords.js`
+- file `ruber-rings-search.js`
+
+### Changed
+- method `haversine` in `sphere-math` improved to prevent NaN results
+
 ## [0.2.0] - 2023-11-07
 ### Added
 - method `shoot` in `sphere-math.js`
