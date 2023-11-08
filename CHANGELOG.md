@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.0] - 2023-11-08
+### Added
+- file `frag.js`
+
 ## [0.3.0] - 2023-11-08
 ### Added
 - file `icosahedron-coords.js`
