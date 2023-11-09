@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.0] - 2023-11-09
+### Added
+- file `compress-float.js`
+
 ## [0.4.0] - 2023-11-08
 ### Added
 - file `frag.js`
