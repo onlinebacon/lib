@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.6.0] - 2023-11-11
+### Added
+- file `color-picker.js`
+- file `sphere-projections.js`
+- sample files for testing
+
 ## [0.5.0] - 2023-11-09
 ### Added
 - file `compress-float.js`
