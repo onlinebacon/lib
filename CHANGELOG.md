@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.7.0] - 2023-11-14
+### Added
+- stereographic projection to `sphere-projections.js`
+- constants for 30 and 60 degrees in `trig.js`
+
 ## [0.6.0] - 2023-11-11
 ### Added
 - file `color-picker.js`

@@ -1,10 +1,11 @@
-import { D180, D360, D90 } from './trig.js';
+import { D180, D30, D360, D45, D90, DEG } from './trig.js';
 
 class Projection {
     constructor({
         name = '',
         toNormal = ([ lat, lon ]) => [ 0, 0 ],
         toLatLon = ([ x, y ]) => [ 0, 0 ],
+        buildArg = () => {},
         ratio = 1,
         cylindrical = false,
         azimuthal = false,
@@ -12,6 +13,7 @@ class Projection {
         this.name = name;
         this.toNormal = toNormal;
         this.toLatLon = toLatLon;
+        this.buildArg = buildArg;
         this.ratio = ratio;
         this.cylindrical = cylindrical;
         this.azimuthal = azimuthal;
@@ -65,13 +67,54 @@ export const azimuthalEquidistant = new Projection({
         const lon = dx >= 0 ? abs : - abs;
         return [ lat, lon ];
     },
+    ratio: 1,
+    azimuthal: true,
 });
 
-export const mercator = new Projection({
-    name: 'Mercator',
+const projectStereographicLatitude = (lat) => {
+    return Math.cos(lat)/(1 + Math.sin(lat));
+};
+const reverseStereographicLatitude = (l) => {
+    const lSqr = l**2;
+    const a = lSqr + 1;
+    const b = 2*lSqr;
+    const c = lSqr - 1;
+    const d = b**2 - 4*a*c;
+    return Math.asin((Math.sqrt(d) - b)/(2*a));
+};
+const defStereographicEdgeLat = - D30;
+const defStereographicArg = projectStereographicLatitude(defStereographicEdgeLat);
+
+export const stereographic = new Projection({
+    name: 'Stereographic',
+    buildArg: ({
+        edgeLatitude = defStereographicEdgeLat,
+    }) => {
+        return projectStereographicLatitude(edgeLatitude);
+    },
+    toNormal: ([ lat, lon ], arg = defStereographicArg) => {
+        const rad = projectStereographicLatitude(lat)/arg*0.5;
+        const x = 0.5 + Math.sin(lon)*rad;
+        const y = 0.5 - Math.cos(lon)*rad;
+        return [ x, y ];
+    },
+    toLatLon: ([ x, y ], arg = defStereographicArg) => {
+        const dx = x - 0.5;
+        const dy = y - 0.5;
+        const len = Math.sqrt(dx**2 + dy**2);
+        if (len === 0) {
+            return [ D90, 0 ];
+        }
+        const abs = Math.acos(-dy/len);
+        const lon = dx >= 0 ? abs : - abs;
+        return [ reverseStereographicLatitude(len*arg*2), lon ];
+    },
+    azimuthal: true,
+    ratio: 1,
 });
 
 export const all = [
     equirectangular,
     azimuthalEquidistant,
+    stereographic,
 ];
