@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.8.0] - 2023-11-19
+### Added
+- method `valueOf` to `frag.js`
+- method `getRgb` to `color-picker.js`
+
 ## [0.7.0] - 2023-11-14
 ### Added
 - stereographic projection to `sphere-projections.js`

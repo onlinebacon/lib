@@ -91,6 +91,11 @@ export default class Frag {
 		return this;
 	}
 
+	valueOf(x, y) {
+		const { mx, cx, my, cy } = this;
+		return [ x*mx + cx, y*my + cy ];
+	}
+
 	zoom(scale, x, y) {
 		const { mx, cx, my, cy } = this;
 		const sx = mx*scale;
