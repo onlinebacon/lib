@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.9.0] - 2023-11-22
+### Added
+- file `parse-degree.js`
+
 ## [0.8.0] - 2023-11-19
 ### Added
 - method `valueOf` to `frag.js`
