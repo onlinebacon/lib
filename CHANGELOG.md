@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.10.0] - 2023-11-22
+### Changed
+- refactored `parse-degree.js`
+
 ## [0.9.0] - 2023-11-22
 ### Added
 - file `parse-degree.js`
