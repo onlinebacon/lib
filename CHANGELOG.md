@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.11.0] - 2023-11-22
+### Added
+- file `spherical-minimizer.js`
+
 ## [0.10.0] - 2023-11-22
 ### Changed
 - refactored `parse-degree.js`
