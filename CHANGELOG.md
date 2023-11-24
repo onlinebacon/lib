@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0] - 2023-11-24
+### Removed
+- log messages in `parse-degree.js`
+
+### Added
+- file `parse-lat-lon.js`;
+
 ## [0.11.0] - 2023-11-22
 ### Added
 - file `spherical-minimizer.js`

@@ -61,8 +61,6 @@ export const parseDegree = (string) => {
 			continue;
 		}
 
-		console.log({ number, lastUnit });
-		
 		if (lastUnit == null) {
 			sum += Number(number);
 			lastUnit = '°';
