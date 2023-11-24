@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.13.0] - 2023-11-24
+### Added
+- orthographic projection to `sphere-projections.js`
+
 ## [0.12.0] - 2023-11-24
 ### Removed
 - log messages in `parse-degree.js`
