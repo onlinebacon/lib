@@ -78,6 +78,18 @@ export class Vec3 extends Array {
 	normalize(dst = new Vec3()) {
 		return this.scale(1/this.len(), dst);
 	}
+	mulMat(mat, dst = new Vec3()) {
+		const [ x, y, z ] = this;
+		const [
+			ix, iy, iz,
+			jx, jy, jz,
+			kx, ky, kz,
+		] = mat;
+		dst[0] = x*ix + y*jx + z*kx;
+		dst[1] = x*iy + y*jy + z*ky;
+		dst[2] = x*iz + y*jz + z*kz;
+		return dst;
+	}
 }
 
 export const vec3 = (...values) => {

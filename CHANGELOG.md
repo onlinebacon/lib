@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.14.0] - 2023-11-26
+### Added
+- file `mat3.js`
+- multiplication by matrix in `vec3.js`
+
 ## [0.13.0] - 2023-11-24
 ### Added
 - orthographic projection to `sphere-projections.js`
