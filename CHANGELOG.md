@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.14.1] - 2023-11-26
+### Added
+- projections sample incremented
+
 ## [0.14.0] - 2023-11-26
 ### Added
 - file `mat3.js`
