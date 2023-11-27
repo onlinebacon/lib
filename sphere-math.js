@@ -1,3 +1,4 @@
+import { Mat3 } from './mat3.js';
 import { sAngle, uAngle } from './trig.js';
 import { Vec3 } from './vec3.js';
 
@@ -45,4 +46,19 @@ export const shoot = ([ lat, lon ], azimuth, distance) => {
 	vec.rotY(lat, vec);
 	vec.rotZ(-lon, vec);
 	return vec3ToLatLon(vec);
+};
+
+export const buildRollMat = (coordA, coordB) => {
+	const [ latA, lonA ] = coordA;
+	const rad = haversine(coordA, coordB);
+	const azm = calcAzimuth(coordA, coordB);
+	const mat = new Mat3();
+	mat.rotZ(lonA, mat);
+	mat.rotY(-latA, mat);
+	mat.rotX(-azm, mat);
+	mat.rotY(rad, mat);
+	mat.rotX(azm, mat);
+	mat.rotY(latA, mat);
+	mat.rotZ(-lonA, mat);
+	return mat;
 };

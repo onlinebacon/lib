@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.15.0] - 2023-11-26
+### Added
+- added method `buildRollMat` to `sphere-math.js`
+
 ## [0.14.1] - 2023-11-26
 ### Added
 - projections sample incremented
