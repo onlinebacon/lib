@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.16.0] - 2023-11-27
+### Added
+- added matrix by matrix multiplication in `mat3.js`
+
 ## [0.15.0] - 2023-11-26
 ### Added
 - added method `buildRollMat` to `sphere-math.js`

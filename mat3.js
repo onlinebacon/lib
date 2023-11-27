@@ -87,6 +87,33 @@ export class Mat3 extends Array {
 	rotZ(ang, dst = new Mat3()) {
 		return this.sinCosRotZ(Math.sin(ang), Math.cos(ang), dst);
 	}
+	mulMat(mat, dst = new Mat3()) {
+		const [
+			aix, aiy, aiz,
+			ajx, ajy, ajz,
+			akx, aky, akz,
+		] = this;
+
+		const [
+			bix, biy, biz,
+			bjx, bjy, bjz,
+			bkx, bky, bkz,
+		] = mat;
+
+		dst[0] = aix*bix + aiy*bjx + aiz*bkx;
+		dst[1] = aix*biy + aiy*bjy + aiz*bky;
+		dst[2] = aix*biz + aiy*bjz + aiz*bkz;
+
+		dst[3] = ajx*bix + ajy*bjx + ajz*bkx;
+		dst[4] = ajx*biy + ajy*bjy + ajz*bky;
+		dst[5] = ajx*biz + ajy*bjz + ajz*bkz;
+
+		dst[6] = akx*bix + aky*bjx + akz*bkx;
+		dst[7] = akx*biy + aky*bjy + akz*bky;
+		dst[8] = akx*biz + aky*bjz + akz*bkz;
+
+		return dst;
+	}
 }
 
 export const mat3 = (...args) => {
