@@ -116,10 +116,15 @@ export default class Frag {
 	bindZoom() {
 		const { canvas } = this;
 		canvas.addEventListener('wheel', e => {
+			if (e.ctrlKey || e.shiftKey) {
+				return;
+			}
 			const scale = 1 + e.deltaY*1e-3;
 			const x = e.offsetX;
 			const y = e.offsetY;
 			this.zoom(scale, x, y);
+			e.preventDefault();
+			e.stopPropagation();
 			delay(0).then(() => this.render());
 		});
 	}

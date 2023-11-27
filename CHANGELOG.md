@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.16.1] - 2023-11-27
+### Changed
+- prevent wheel event from scrolling page when zooming in `frag.js`
+
 ## [0.16.0] - 2023-11-27
 ### Added
 - added matrix by matrix multiplication in `mat3.js`
