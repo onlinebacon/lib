@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.17.0] - 2023-12-08
+### Added
+- file `length-units.js`
+
 ## [0.16.1] - 2023-11-27
 ### Changed
 - prevent wheel event from scrolling page when zooming in `frag.js`
