@@ -23,7 +23,10 @@ export default class Frag {
 		this.ctx = canvas.getContext('2d');
 		this.fragColor = fragColor;
 		this.bounds = bounds;
-		this.resetTransform();
+		this.scale = 1;
+		this.dx = 0;
+		this.dy = 0;
+		this.updateTransform();
 		this.renderId = 0;
 		this.render();
 	}
@@ -82,12 +85,21 @@ export default class Frag {
 	}
 
 	resetTransform() {
+		this.scale = 1;
+		this.dx = 0;
+		this.dy = 0;
+		this.updateTransform();
+		return this;
+	}
+
+	updateTransform() {
+		const { scale, dx, dy } = this;
 		const { width, height } = this.canvas;
 		const { left, right, top, bottom } = this.bounds;
-		this.cx = left;
-		this.mx = (right - left)/width;
-		this.cy = top;
-		this.my = (bottom - top)/height;
+		this.cx = dx + left;
+		this.mx = (right - left)/(width*scale);
+		this.cy = dy + top;
+		this.my = (bottom - top)/(height*scale);
 		return this;
 	}
 
@@ -97,19 +109,19 @@ export default class Frag {
 	}
 
 	zoom(scale, x, y) {
-		const { mx, cx, my, cy } = this;
-		const sx = mx*scale;
-		this.mx = sx;
-		this.cx = x*mx + cx - x*sx;
-		const sy = my*scale;
-		this.my = sy;
-		this.cy = y*my + cy - y*sy;
+		const idx = x*this.mx;
+		const idy = y*this.my;
+		this.dx += idx - idx/scale;
+		this.dy += idy - idy/scale;
+		this.scale *= scale;
+		this.updateTransform();
 		return this;
 	}
 
 	translate(dx, dy) {
-		this.cx -= dx*this.mx;
-		this.cy -= dy*this.my;
+		this.dx -= dx*this.mx;
+		this.dy -= dy*this.my;
+		this.updateTransform();
 		return this;
 	}
 
@@ -119,7 +131,7 @@ export default class Frag {
 			if (e.ctrlKey || e.shiftKey) {
 				return;
 			}
-			const scale = 1 + e.deltaY*1e-3;
+			const scale = 1 - e.deltaY*1e-3;
 			const x = e.offsetX;
 			const y = e.offsetY;
 			this.zoom(scale, x, y);
@@ -147,7 +159,7 @@ export default class Frag {
 			lastPos = { x, y };
 		});
 
-		canvas.addEventListener('mouseup', e => {
+		window.addEventListener('mouseup', e => {
 			if (e.button !== button) {
 				return;
 			}

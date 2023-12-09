@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.18.0] - 2023-12-09
+### Changed
+- Removed bug from `frag.js`
+- Changed zoom and offset calculations
+
 ## [0.17.0] - 2023-12-08
 ### Added
 - file `length-units.js`
