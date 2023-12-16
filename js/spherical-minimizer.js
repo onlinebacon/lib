@@ -1,5 +1,5 @@
-import { shoot } from "./sphere-math.js";
-import { D30, D360, D60 } from "./trig.js";
+import { shoot } from './sphere-math.js';
+import { D30, D360, D60 } from './trig.js';
 
 const defFn = ([ lat, lon ]) => {};
 

@@ -1,4 +1,4 @@
-import { parseDegree } from "./parse-degree.js";
+import { parseDegree } from './parse-degree.js';
 
 const latSignRegex = /^[ns]|[ns]$/i;
 const lonSignRegex = /^[ew]|[ew]$/i;

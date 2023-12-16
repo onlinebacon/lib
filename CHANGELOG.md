@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0] - 2023-12-16
+### Changed
+- JS files moved to `/js` directory
+
+### Remvoed
+- Sample directory
+
 ## [0.18.0] - 2023-12-09
 ### Changed
 - Removed bug from `frag.js`

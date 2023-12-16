@@ -1,4 +1,4 @@
-import { D180, D30, D360, D45, D90, DEG } from './trig.js';
+import { D180, D30, D360, D90 } from './trig.js';
 
 class Projection {
 	constructor({
