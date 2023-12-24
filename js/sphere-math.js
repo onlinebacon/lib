@@ -1,5 +1,5 @@
 import { Mat3 } from './mat3.js';
-import { sAngle, uAngle } from './trig.js';
+import { sAngle, uAngle, D90, D180 } from './trig.js';
 import { Vec3 } from './vec3.js';
 
 const { sqrt, asin, sin, cos } = Math;
@@ -61,4 +61,17 @@ export const buildRollMat = (coordA, coordB) => {
 	mat.rotY(latA, mat);
 	mat.rotZ(-lonA, mat);
 	return mat;
+};
+
+export const latLonIsValid = ([ lat, lon ]) => {
+	if (isNaN(lat) || isNaN(lon)) {
+		return false;
+	}
+	if (lat > D90 || lat < -D90) {
+		return false;
+	}
+	if (lon > D180 || lon < -D180) {
+		return false;
+	}
+	return true;
 };

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0] - 2023-12-24
+### Added
+- Method `latLonIsValid` to `sphere-math.js`
+
 ## [1.0.0] - 2023-12-16
 ### Changed
 - JS files moved to `/js` directory
