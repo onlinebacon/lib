@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.1] - 2023-12-24
+### Changed
+- Nothing. Empty commit
+
 ## [1.1.0] - 2023-12-24
 ### Added
 - Method `latLonIsValid` to `sphere-math.js`
