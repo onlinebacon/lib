@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.0] - 2024-01-27
+### Added
+- file `angle-formatter.js`
+- file `lat-lon-formatter.js`
+
 ## [1.0.0] - 2023-12-16
 ### Changed
 - JS files moved to `/js` directory
