@@ -1,8 +1,9 @@
 # Changelog
 
-## [1.1.1] - 2023-12-24
-### Changed
-- Nothing. Empty commit
+## [1.2.0] - 2024-01-27
+### Added
+- file `angle-formatter.js`
+- file `lat-lon-formatter.js`
 
 ## [1.1.0] - 2023-12-24
 ### Added
