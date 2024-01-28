@@ -13,7 +13,7 @@
 ### Changed
 - JS files moved to `/js` directory
 
-### Remvoed
+### Removed
 - Sample directory
 
 ## [0.18.0] - 2023-12-09

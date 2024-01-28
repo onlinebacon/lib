@@ -1,26 +1,26 @@
 const { abs } = Math;
 
-const ronud = (value, figures = 0) => {
+const round = (value, figures = 0) => {
 	return Number(value.toFixed(figures));
 };
 
 const formatToDecimals = (degrees, figures = 3) => {
-	return ronud(degrees, figures) + '°';
+	return round(degrees, figures) + '°';
 };
 
 const formatToMinutes = (degrees, figures = 1, sep = '') => {
-	const totalMin = ronud(abs(degrees)*60, figures);
-	const min = ronud(totalMin % 60, figures);
-	const deg = ronud((totalMin - min)/60);
+	const totalMin = round(abs(degrees)*60, figures);
+	const min = round(totalMin % 60, figures);
+	const deg = round((totalMin - min)/60);
 	return `${degrees < 0 ? '-' : ''}${deg}°${sep}${min}'`;
 };
 
 const formatToSeconds = (degrees, figures = 1, sep = '') => {
-	const totalSec = ronud(abs(degrees)*60*60, figures);
-	const sec = ronud(totalSec % 60, figures);
-	const totalMin = ronud((totalSec - sec)/60);
-	const min = ronud(totalMin % 60);
-	const deg = ronud((totalMin - min)/60);
+	const totalSec = round(abs(degrees)*60*60, figures);
+	const sec = round(totalSec % 60, figures);
+	const totalMin = round((totalSec - sec)/60);
+	const min = round(totalMin % 60);
+	const deg = round((totalMin - min)/60);
 	return `${degrees < 0 ? '-' : ''}${deg}°${sep}${min}'${sep}${sec}"`;
 };
 
