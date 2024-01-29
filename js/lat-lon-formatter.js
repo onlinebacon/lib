@@ -7,13 +7,14 @@ export class LatLonFormatter {
 	formatWithSigns(angle, pos, neg) {
 		const { formatter } = this;
 		const str = formatter.format(angle);
+		const sep = formatter.sep ?? '';
 		if (str.startsWith('-')) {
-			return str.substring(1) + formatter.sep + neg;
+			return str.substring(1) + sep + neg;
 		}
 		if (str.startsWith('+')) {
-			return str.substring(1) + formatter.sep + pos;
+			return str.substring(1) + sep + pos;
 		}
-		return str + formatter.sep + pos;
+		return str + sep + pos;
 	}
 	formatLat(lat) {
 		return this.formatWithSigns(lat, 'N', 'S');

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.2.1] - 2024-01-28
+### Changed
+- Fixed bug in `lat-lon-formatter.js`
+
 ## [1.2.0] - 2024-01-27
 ### Added
 - file `angle-formatter.js`
